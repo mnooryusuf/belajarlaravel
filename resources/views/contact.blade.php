@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layout :title="$title">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Contact</title>
-</head>
+    <p>This is {{ $title }}!</p>
 
-<body>
-    <h1>Contact</h1>
+
+
     <img src="img/Kabupaten Hulu Sungai Selatan.png" alt="HSS">
-</body>
-
-</html>
+</x-layout>
