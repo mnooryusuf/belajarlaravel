@@ -16,19 +16,14 @@
                 </div>
                 <input type="search" id="default-search"
                     class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search post title..." required autofocus />
+                    placeholder="Search post title..." autofocus autocomplete="off" name="search" />
                 <button type="submit"
                     class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
             </div>
-            <p class="my-4 font-light">{{ Str::limit($post['body'], 100) }}
-            </p>
-            <a href="/posts/{{ $post['slug'] }}" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
-        </article>
-    @endforeach --}}
+        </form>
 
 
 
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
 
         <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
             @foreach ($posts as $post)
@@ -47,17 +42,17 @@
                             href="/posts/{{ $post['slug'] }}">{{ $post->title }}</a></h2>
                     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($post->body, 100) }}</p>
                     <div class="flex justify-between items-center">
-                        <div class="flex items-center space-x-4">
-                            <img class="w-7 h-7 rounded-full"
-                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                                alt="{{ $post->author->name }}" />
-                            <a href="/authors/{{ $post->author->username }}">
+                        <a href="/authors/{{ $post->author->username }}">
+                            <div class="flex items-center space-x-4">
+                                <img class="w-7 h-7 rounded-full"
+                                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                                    alt="{{ $post->author->name }}" />
 
                                 <span class="font-medium text-xs dark:text-white hover:underline">
                                     {{ $post->author->name }}
                                 </span>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                         <a href="/posts/{{ $post['slug'] }}"
                             class="text-xs inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                             Read more
