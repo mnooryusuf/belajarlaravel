@@ -29,10 +29,11 @@
         </form>
 
 
+        {{ $posts->links() }}
 
 
-        <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
-            @foreach ($posts as $post)
+        <div class="mt-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+            @forelse ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
@@ -71,7 +72,13 @@
                         </a>
                     </div>
                 </article>
-            @endforeach
+            @empty
+                <div class="col-span-3">
+                    <p class="text-center text-xl my-4 font-semibold text-gray-700 dark:text-gray-400">No Article found.
+                    </p>
+                    <a href="/posts" class="block text-blue-500 hover:underline">&laquo; Back To All Posts.</a>
+                </div>
+            @endforelse
         </div>
     </div>
 
